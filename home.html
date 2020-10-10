@@ -61,7 +61,7 @@ window.onload = () => {
 		lista.push(contos[i].id)
 		contos[i].addEventListener('click', (e) => {
 		
-		window.location = "/readpage.html?c="+e.target.id
+		window.location = "/contos/readpage.html?c="+e.target.id
 		
 		})
 	}
@@ -70,7 +70,7 @@ window.onload = () => {
 	document.getElementById('rand').addEventListener('click', () => {
 		
 			conto = lista[Math.floor((Math.random() * 11) + 0)]
-			window.location = "/readpage.html?c=" + conto
+			window.location = "/contos/readpage.html?c=" + conto
 		
 			})
 
