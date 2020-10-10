@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+
+<head>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+
+body {
+	font-size: 18px;
+	margin: 0;
+	text-align:center;
+	background-color: #CECECE;
+	font-family: 'Bebas Neue', cursive;
+
+}
+
+body p {
+	text-align: justify;
+	font-family: 'Roboto', sans-serif;
+}
+
+#content {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FEFEFE;
+	padding-right: 15%;
+	padding-left: 15%;
+	padding-top: 1px;
+	padding-bottom: 10px;
+}
+
+h3 {
+	background-color: #008fb3;
+	width: 20%;
+	margin: auto;
+	margin-top:20px;
+	padding:5px;
+	cursor:pointer;
+}
+
+</style>
+
+<script>
+
+
+window.onload = () => {
+
+
+	var lista = [];
+
+	var contos = document.getElementsByTagName('H3')
+	
+	for (i = 0; i < contos.length; i++) {
+		
+		if(contos[i].id == 'rand'){		
+		continue
+		}
+		lista.push(contos[i].id)
+		contos[i].addEventListener('click', (e) => {
+		
+		window.location = "/readpage.html?c="+e.target.id
+		
+		})
+	}
+	console.log(lista)
+	
+	document.getElementById('rand').addEventListener('click', () => {
+		
+			conto = lista[Math.floor((Math.random() * 11) + 0)]
+			window.location = "/readpage.html?c=" + conto
+		
+			})
+
+
+}
+
+
+</script>
+
+</head>
+<body>
+
+<div id='content'>
+	<h1>Contos - I</h1>
+	
+	<h2>Apresentações:</h2>
+	
+	<p>Olá, eu sou Yerik. Eu escrevi alguns contos e estou publicando eles aqui neste site</p>
+	
+	<h2>Como Ler?</h2>
+	
+	<p>Ler os contos é extremamente simples: basta selecionar qualquer um dos abaixo que você será
+	redirecionado para onde pode ler. não há ordem correta para se ler, mas caso queira uma recomendação, siga a ordem dessa página.
+	Se quiser uma experiencia diferente, leia utilizando o botão <i>Aleatório</i></p>
+	
+	<h2>Contos:</h2>
+	<br>
+	<h3 style='background-color:#cc99ff;' id='rand'>Ler um conto Aleatório</h3>
+	<br>
+	<h3 id='isolado'>ISOLADO</h3>
+	<h3 id='o_observador'>O OBSERVADOR</h3>
+	<h3 id='ultimos_contatos'>ÚLTIMOS CONTATOS</h3>
+	<h3 id='debaixo_da_cova'>DEBAIXO DA COVA</h3>
+	<h3 id='roadtrip'>ROADTRIP</h3>
+	<h3 id='um_passeio_pacifico'>UM PASSEIO PACÍFICO</h3>
+	<h3 id='a_fabrica_abandonada'>A FÁBRICA ABANDONADA</h3>
+	<h3 id='sobre_os_trilhos_do_destino'>SOBRE OS TRILHOS DO DESTINO</h3>
+	<h3 id='o_espreitador'>O ESPREITADOR</h3>
+	<h3 id='como_planejado'>COMO PLANEJADO</h3>
+	<br>
+	<h2>Só leia o conto abaixo após ler todos os outros</h2>
+	<h3 id='pacificamente_aterrorizante'>PACIFICAMENTE ATERRORIZANTE</h3>
+</div>
+</body>

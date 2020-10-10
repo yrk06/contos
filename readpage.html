@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+
+<head>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+
+body {
+	font-size: 18px;
+	margin: 0;
+	text-align:center;
+	background-color: #CECECE;
+	font-family: 'Bebas Neue', cursive;
+
+}
+
+body p {
+	text-align: justify;
+	font-family: 'Roboto', sans-serif;
+}
+
+#content {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FEFEFE;
+	padding-right: 15%;
+	padding-left: 15%;
+	padding-top: 1px;
+	padding-bottom: 10px;
+}
+
+.texto {
+	text-indent: 2em;
+
+}
+</style>
+
+<script>
+
+
+window.onload = () => {
+	
+	var info = window.location.search
+	var properties = info.replace('?','').split('&')
+	var conto;
+	
+	for(Pnum = 0; Pnum < properties.length;Pnum++){
+	
+		var keypair = properties[Pnum].split('=')
+		if(keypair[0] === 'c'){
+			conto = keypair[1]
+		}
+	}
+	
+	
+	fetch(conto+'.html').then(function (response){
+		if(!response.ok){
+			console.log('erro')
+		}
+		response.text().then(function (content){
+		htmlContent = new DOMParser().parseFromString(content,'text/html')
+		document.getElementById('content').append(htmlContent.documentElement.childNodes[1].childNodes[0])
+		})
+	
+	})
+	
+	console.log()
+}
+
+
+</script>
+
+</head>
+<body>
+
+<div id='content'>
+</div>
+</body>
