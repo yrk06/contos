@@ -54,7 +54,7 @@ window.onload = () => {
 	}
 	
 	
-	fetch(conto+'.html').then(function (response){
+	fetch('/contos/'+conto+'.html').then(function (response){
 		if(!response.ok){
 			console.log('erro')
 		}
