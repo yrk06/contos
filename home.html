@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 
 <head>
-<title>Contos - I</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
@@ -38,6 +37,8 @@ h3 {
 	margin-top:20px;
 	padding:5px;
 	cursor:pointer;
+	border: 2px solid #990099;
+	border-radius: 5px;
 }
 
 </style>
@@ -60,7 +61,7 @@ window.onload = () => {
 		lista.push(contos[i].id)
 		contos[i].addEventListener('click', (e) => {
 		
-		window.location = "/contos/readpage.html?c="+e.target.id
+		window.location = "/readpage.html?c="+e.target.id
 		
 		})
 	}
@@ -69,7 +70,7 @@ window.onload = () => {
 	document.getElementById('rand').addEventListener('click', () => {
 		
 			conto = lista[Math.floor((Math.random() * 11) + 0)]
-			window.location = "/contos/readpage.html?c=" + conto
+			window.location = "/readpage.html?c=" + conto
 		
 			})
 
