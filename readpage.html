@@ -2,6 +2,8 @@
 
 <head>
 
+<title>Contos - I Leitura</title>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
 
@@ -52,9 +54,7 @@ window.onload = () => {
 			conto = keypair[1]
 		}
 	}
-	
-	
-	fetch('/contos/'+conto+'.html').then(function (response){
+	fetch(conto+'.html').then(function (response){
 		if(!response.ok){
 			console.log('erro')
 		}
