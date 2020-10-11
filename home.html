@@ -11,7 +11,7 @@ body {
 	font-size: 18px;
 	margin: 0;
 	text-align:center;
-	background-color: #CECECE;
+	background-color: #ffffb3;
 	font-family: 'Bebas Neue', cursive;
 
 }
@@ -33,7 +33,7 @@ body p {
 }
 
 h3 {
-background-color: #008fb3;
+background-color: #ffffcc;
 width: 20%;
 margin: auto;
 margin-top:20px;
@@ -41,6 +41,30 @@ padding:5px;
 cursor:pointer;
 border: 2px solid #990099;
 border-radius: 5px;
+}
+
+#imgs {
+  height: 60vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.layer {
+  background-position: top center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 56.25vw;
+  position: fixed;
+  z-index: -1;
+}
+
+#bg {
+	background-image: url(Sky.png);
+}
+#fg {
+	background-image: url(house.png);
+	top:100px;
 }
 
 </style>
@@ -79,14 +103,46 @@ window.onload = () => {
 
 }
 
+window.addEventListener('scroll', (event) => {
+	
+	topDistance = window.scrollY
+	
+	var layers = document.getElementsByClassName("layer");
+	
+	for(id = 0; id<layers.length;id++){
+	var layer = layers[id]
+	depth = layer.getAttribute('depth')
+	movement = -(topDistance * depth)
+	translate3d = 'translate3d(0, ' + movement + 'px, 0)'
+	layer.style['-webkit-transform'] = translate3d
+	layer.style['-moz-transform'] = translate3d
+	layer.style['-ms-transform'] = translate3d
+	layer.style['-o-transform'] = translate3d
+	layer.style.transform = translate3d
+	}
+	
+	//document.getElementById("bvindo").style.opacity = 1 - (topDistance)/(document.documentElement.clientHeight*0.6)
+
+})
+
 
 </script>
 
 </head>
 <body>
 
+<div id='imgs'>
+
+<div class='layer' depth='0.1' id='bg'></div>
+<div class='layer' depth='0.8' id='fg'></div>
+
+</div>
+
 <div id='content'>
-	<h1>Contos — I</h1>
+	<!--<h1 id='bvindo' style='position:fixed;right:50%;
+    margin-right:-250px;
+    width:500px;top:30vh'>Bem Vindo</h1>-->
+	<h1 id='inicio'>Contos — I</h1>
 	
 	<h2>Apresentações:</h2>
 	
@@ -100,7 +156,7 @@ window.onload = () => {
 	
 	<h2>Contos:</h2>
 	<br>
-	<h3 style='background-color:#cc99ff;' id='rand'>Ler um conto Aleatório</h3>
+	<h3 style='background-color:#ffb380;' id='rand'>Ler um conto Aleatório</h3>
 	<br>
 	<h3 id='isolado'>ISOLADO</h3>
 	<h3 id='o_observador'>O OBSERVADOR</h3>
