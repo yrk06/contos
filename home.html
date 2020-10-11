@@ -22,10 +22,11 @@ body p {
 }
 
 #content {
-	width: 50%;
+	width: 70%;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FEFEFE;
+	background-image: url(Brickwall.png);
 	padding-right: 15%;
 	padding-left: 15%;
 	padding-top: 1px;
@@ -33,13 +34,13 @@ body p {
 }
 
 h3 {
-background-color: #ffffcc;
+//background-color: #ffffcc;
 width: 20%;
 margin: auto;
 margin-top:20px;
 padding:5px;
 cursor:pointer;
-border: 2px solid #990099;
+border: 2px solid #000000;//#990099;
 border-radius: 5px;
 }
 
@@ -51,7 +52,7 @@ border-radius: 5px;
 
 .layer {
   background-position: top center;
-  background-size: 80%;
+  background-size: 100%;
   background-repeat: no-repeat;
   width: 100%;
   height: 56.25vw;
@@ -60,11 +61,41 @@ border-radius: 5px;
 }
 
 #bg {
-	background-image: url(sky.png);
+	background-image: url(Sky.png);
 }
 #fg {
-	background-image: url(house.png);
-	top:100px;
+	background-image: url(house2.png);
+	top:5vh;
+}
+
+#trim {
+	background-image: url(Bricktrim.png);
+	width: 70%;
+	height: 10vh;
+	margin-left: auto;
+	margin-right: auto;
+	padding-right: 15%;
+	padding-left: 15%;
+	padding-top: 1px;
+	padding-bottom: 10px;
+	background-position:top center;
+}
+
+#paperWrap {
+	background-image: url(Paper.png);
+	width: 80%;
+	
+	padding-right: 10%;
+	padding-left: 10%;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background-position:top center;
+	background-size:cover;
+	background-repeat: no-repeat;
+	//margin-left: auto;
+	//margin-right: auto;
+
+
 }
 
 </style>
@@ -137,11 +168,12 @@ window.addEventListener('scroll', (event) => {
 <div class='layer' depth='0.8' id='fg'></div>
 
 </div>
-
+<div id='trim'></div>
 <div id='content'>
 	<!--<h1 id='bvindo' style='position:fixed;right:50%;
     margin-right:-250px;
     width:500px;top:30vh'>Bem Vindo</h1>-->
+	<div id='paperWrap'>
 	<h1 id='inicio'>Contos — I</h1>
 	
 	<h2>Apresentações:</h2>
@@ -172,5 +204,6 @@ window.addEventListener('scroll', (event) => {
 	<br>
 	<h2>Só leia o conto abaixo após ler todos os outros</h2>
 	<h3 id='pacificamente_aterrorizante'>PACIFICAMENTE ATERRORIZANTE</h3>
+	</div>
 </div>
 </body>
