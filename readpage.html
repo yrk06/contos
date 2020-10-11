@@ -12,6 +12,7 @@ body {
 	margin: 0;
 	text-align: center;
 	background-color: #CECECE;
+	background-image: url(Brickwall.png);
 	font-family: 'Bebas Neue', cursive;
 
 }
@@ -25,11 +26,15 @@ body p {
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #FEFEFE;
+	background-image: url(Paper.png);
+	background-position:top center;
+	background-size:cover;
+	background-repeat: no-repeat;
 	padding-right: 15%;
 	padding-left: 15%;
-	padding-top: 1px;
-	padding-bottom: 10px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	height: 100vh;
 }
 
 h3 {
@@ -72,11 +77,22 @@ window.onload = () => {
 	fetch(conto+'.html').then(function (response){
 		if(!response.ok){
 			console.log('erro')
+			let errorMsg = document.getElementById('404')
+			errorMsg.innerHTML = 'O conto '+conto+' que você tentou acessar não existe... ainda'
 		}
 		response.text().then(function (content){
 		htmlContent = new DOMParser().parseFromString(content,'text/html')
-		document.getElementById('content').append(htmlContent.documentElement.childNodes[1].childNodes[0])
+		let voltar = document.getElementById('voltar')
+		document.getElementById('content').insertBefore(htmlContent.documentElement.childNodes[1].childNodes[0],voltar)
 		})
+	
+	}).catch((error) => {
+	
+		console.log('erro')
+		let errorMsg = document.getElementById('404')
+		errorMsg.innerHTML = 'O conto \''+conto+'\' que você tentou acessar não existe... ainda'
+	
+	
 	
 	})
 	
@@ -96,7 +112,9 @@ window.onload = () => {
 </head>
 <body>
 
+<div id='trim'></div>
 <div id='content'>
-</div>
+<h1 id='404'></h1>
 <h3 id='voltar'>Voltar</h3>
+</div>
 </body>
